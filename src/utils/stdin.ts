@@ -1,4 +1,4 @@
-import { TextLineStream, TextDelimiterStream, toText,  } from "@std/streams";
+import { TextLineStream, TextDelimiterStream, toText } from "@std/streams";
 
 export const readLineByLine = (
   file: ReadableStream<Uint8Array> = Deno.stdin.readable
@@ -18,7 +18,7 @@ export const readByDelimiter = (
 };
 
 export const readAllStdin = (
-  file: ReadableStream<Uint8Array> = Deno.stdin.readable,
+  file: ReadableStream<Uint8Array> = Deno.stdin.readable
 ) => {
-  return toText(file.pipeThrough(new TextDecoderStream()))
-}
+  return toText(file.pipeThrough(new TextDecoderStream()));
+};
