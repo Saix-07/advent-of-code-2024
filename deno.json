@@ -1,7 +1,6 @@
 {
   "tasks": {
-    "hello": "echo $0",
-    "dev": "deno run --watch main.ts",
+    "dev": "deno run --watch ./src/main.ts",
     "download": "deno task op deno run --allow-net=adventofcode.com --allow-env=SESSION --allow-read=\".env\" --allow-write=\"./src/inputs\" ./src/scripts/download-input.ts",
     "op": "op run --env-file=\".env\" --"
   },
@@ -16,5 +15,11 @@
   },
   "fmt": {
     "singleQuote": true
+  },
+  "lint": {
+    "include": ["src/"],
+    "rules": {
+      "tags": ["recommended"]
+    }
   }
 }

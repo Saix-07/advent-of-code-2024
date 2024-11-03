@@ -1,5 +1,7 @@
-import { readAllStdin, readByDelimiter } from '$utils/stdin.ts';
+function main() {
+  console.log("hello world!");
+}
 
-async function main() {
-  const thing = await readAllStdin();
+if (import.meta.main) {
+  main();
 }
