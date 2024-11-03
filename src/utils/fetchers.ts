@@ -29,7 +29,7 @@ export const postAnswer = async ({
   part,
   answer,
 }: PosterArgs) => {
-  const url = `https://adventofcode.com/${year}/day/${day}/input`;
+  const url = `https://adventofcode.com/${year}/day/${day}/answer`;
 
   const resp = await fetch(url, {
     method: 'POST',
