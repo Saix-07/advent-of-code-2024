@@ -1,5 +1,14 @@
 import { TextLineStream, TextDelimiterStream, toText } from "@std/streams";
 
+/**
+ * Accepts a stream and returns an async iterator delimited by line
+ * 
+ * ```ts
+ * for await (const line of readLineByLine()) {
+ *   console.log(line)
+ * }
+ * ```
+ */
 export const readLineByLine = (
   file: ReadableStream<Uint8Array> = Deno.stdin.readable
 ) => {
