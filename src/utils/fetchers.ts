@@ -1,4 +1,4 @@
-import env from "$utils/env.ts";
+import env from '$utils/env.ts';
 
 const headers = {
   Cookie: `session=${env.SESSION}`,
@@ -32,7 +32,7 @@ export const postAnswer = async ({
   const url = `https://adventofcode.com/${year}/day/${day}/input`;
 
   const resp = await fetch(url, {
-    method: "POST",
+    method: 'POST',
     headers,
     body: JSON.stringify({
       level: part,
@@ -42,7 +42,7 @@ export const postAnswer = async ({
 
   const text = await resp.text();
 
-  if (text.includes("Congratulations!")) {
+  if (text.includes('Congratulations!')) {
     return true;
   }
 

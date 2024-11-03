@@ -1,8 +1,8 @@
-import { TextLineStream, TextDelimiterStream, toText } from "@std/streams";
+import { TextDelimiterStream, TextLineStream, toText } from '@std/streams';
 
 /**
  * Accepts a stream and returns an async iterator delimited by line
- * 
+ *
  * ```ts
  * for await (const line of readLineByLine()) {
  *   console.log(line)
@@ -10,7 +10,7 @@ import { TextLineStream, TextDelimiterStream, toText } from "@std/streams";
  * ```
  */
 export const readLineByLine = (
-  file: ReadableStream<Uint8Array> = Deno.stdin.readable
+  file: ReadableStream<Uint8Array> = Deno.stdin.readable,
 ) => {
   return file
     .pipeThrough(new TextDecoderStream()) // decode Uint8Array to string
@@ -19,7 +19,7 @@ export const readLineByLine = (
 
 export const readByDelimiter = (
   delim: string,
-  file: ReadableStream<Uint8Array> = Deno.stdin.readable
+  file: ReadableStream<Uint8Array> = Deno.stdin.readable,
 ) => {
   return file
     .pipeThrough(new TextDecoderStream())
@@ -27,7 +27,7 @@ export const readByDelimiter = (
 };
 
 export const readAllStdin = (
-  file: ReadableStream<Uint8Array> = Deno.stdin.readable
+  file: ReadableStream<Uint8Array> = Deno.stdin.readable,
 ) => {
   return toText(file.pipeThrough(new TextDecoderStream()));
 };
