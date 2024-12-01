@@ -1,13 +1,13 @@
-import { readLineByLine } from '$utils/stdin.ts';
 import { zip } from '@std/collections';
 import { sort } from '$utils/blah.ts';
 import DefaultDict from '$utils/default-dict.ts';
+import { testSample } from '$utils/tester.ts';
 
-async function part01() {
+async function part01(lines: Iterable<string>) {
   const leftList: number[] = [];
   const rightList: number[] = [];
 
-  for await (const line of readLineByLine()) {
+  for await (const line of lines) {
     const [left, right] = line.split(/\s/).filter((s) => s.length > 0);
     if (!left || !right) throw new Error(`Unexpected input: ${line}`);
 
@@ -23,11 +23,11 @@ async function part01() {
   return total;
 }
 
-async function part02() {
+async function part02(lines: Iterable<string>) {
   const leftList: number[] = [];
   const freqMap = new DefaultDict<number, number>(() => 0);
 
-  for await (const line of readLineByLine()) {
+  for await (const line of lines) {
     const [left, right] = line.split(/\s/).filter((s) => s.length > 0);
     if (!left || !right) throw new Error(`Unexpected input: ${line}`);
 
@@ -43,5 +43,14 @@ async function part02() {
   return total;
 }
 
-// console.log(`Part 1: ${await part01()}`);
-console.log(`Part 2: ${await part02()}`);
+testSample(part01, {
+  day: 1,
+  part: 1,
+  expected: '11',
+});
+
+testSample(part02, {
+  day: 1,
+  part: 2,
+  expected: '31',
+});
